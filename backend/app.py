@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 import uuid
-
+import os
 db = SQLAlchemy()
 
 def generate_uuid():
