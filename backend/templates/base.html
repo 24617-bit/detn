@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démographie · Mauritanie</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ["class"],
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(140, 20%, 20%)",
+                        input: "hsl(140, 20%, 20%)",
+                        ring: "hsl(142, 60%, 45%)",
+                        background: "hsl(140, 30%, 6%)",
+                        foreground: "hsl(0, 0%, 95%)",
+                        primary: {
+                            DEFAULT: "hsl(142, 60%, 45%)",
+                            foreground: "hsl(144, 90%, 9%)",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(140, 20%, 15%)",
+                            foreground: "hsl(0, 0%, 98%)",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(0, 62.8%, 30.6%)",
+                            foreground: "hsl(0, 0%, 98%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(140, 20%, 15%)",
+                            foreground: "hsl(140, 10%, 65%)",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(45, 93%, 47%)",
+                            foreground: "hsl(45, 93%, 10%)",
+                        },
+                        card: {
+                            DEFAULT: "hsl(140, 30%, 8%)",
+                            foreground: "hsl(0, 0%, 95%)",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="min-h-screen bg-background font-sans antialiased">
+    <header class="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
+        <div class="container mx-auto flex h-16 items-center px-4">
+            <a href="/" class="flex items-center gap-3">
+                <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                    <i data-lucide="activity" class="h-5 w-5"></i>
+                </span>
+                <span class="font-display font-bold">Démographie · Mauritanie</span>
+            </a>
+            <div class="flex flex-1 items-center justify-end space-x-6">
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="/" class="text-foreground/80 hover:text-foreground transition">Accueil</a>
+                    <a href="/statistiques" class="text-foreground/80 hover:text-foreground transition">Statistiques RGPH</a>
+                </nav>
+                <a href="/login" class="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-primary-foreground font-semibold hover:brightness-110 transition">Connexion</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
+

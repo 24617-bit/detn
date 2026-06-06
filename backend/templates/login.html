@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="grid min-h-screen lg:grid-cols-2">
+    <!-- Visuel gauche -->
+    <div class="relative hidden lg:block">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#063b22] to-[#0b6b3f]"></div>
+        <div class="relative flex h-full flex-col justify-between p-12 text-white">
+            <a href="/" class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-white/15">
+                    <i data-lucide="activity" class="h-5 w-5"></i>
+                </span>
+                <span class="font-display font-bold">Démographie · Mauritanie</span>
+            </a>
+            <div>
+                <h2 class="font-display text-3xl font-extrabold leading-tight">Espace d'administration</h2>
+                <p class="mt-3 max-w-sm text-white/75">
+                    Saisie des naissances, décès et flux migratoires alimentant le compteur national de population résidente.
+                </p>
+            </div>
+            <p class="text-xs text-white/50">© Ministère de la Santé — Mauritanie</p>
+        </div>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="flex items-center justify-center bg-background p-6">
+        <div class="w-full max-w-md">
+            <div class="flex items-center gap-3">
+                <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                    <i data-lucide="shield-check" class="h-5 w-5"></i>
+                </span>
+                <div>
+                    <h1 class="font-display text-xl font-bold text-foreground">Connexion</h1>
+                    <p class="text-sm text-muted-foreground">Réservé au personnel autorisé</p>
+                </div>
+            </div>
+
+            <!-- Alerte erreur -->
+            <div id="error-msg" class="hidden mt-4 rounded-lg border border-destructive/50 bg-destructive/10 p-3 text-sm text-red-400">
+                Identifiants incorrects. Veuillez réessayer.
+            </div>
+
+            <form id="login-form" class="mt-8 space-y-4">
+                <div>
+                    <label for="username" class="text-sm font-medium text-foreground">Identifiant</label>
+                    <input id="username" name="username" type="text"
+                        class="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring"
+                        placeholder="ex. admin_ansade" autocomplete="username" required />
+                </div>
+                <div>
+                    <label for="password" class="text-sm font-medium text-foreground">Mot de passe</label>
+                    <input id="password" name="password" type="password"
+                        class="mt-1.5 w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring"
+                        placeholder="••••••••" autocomplete="current-password" required />
+                </div>
+                <button type="submit"
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-95">
+                    <i data-lucide="log-in" class="h-4 w-4"></i>
+                    Se connecter
+                </button>
+            </form>
+
+
+
+            <a href="/" class="mt-6 block text-center text-sm text-muted-foreground hover:text-primary">← Retour au site public</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+
+    // Gestion du formulaire de connexion
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value;
+        const errDiv = document.getElementById('error-msg');
+        errDiv.classList.add('hidden');
+
+        try {
+            const res = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                sessionStorage.setItem('session', JSON.stringify(data));
+                window.location.href = '/admin';
+            } else {
+                errDiv.classList.remove('hidden');
+            }
+        } catch (err) {
+            errDiv.textContent = 'Erreur de connexion au serveur.';
+            errDiv.classList.remove('hidden');
+        }
+    });
+</script>
+{% endblock %}
+
