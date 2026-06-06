@@ -1,0 +1,19 @@
+/* =========================================================
+   style.css — Démographie Mauritanie
+   ========================================================= */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(140, 30%, 6%);
+    color: hsl(0, 0%, 95%);
+}
+
+.font-display {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Digit counter animation */
+#population-digits span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
