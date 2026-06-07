@@ -125,11 +125,9 @@
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Point d'entrée</label>
-                        <select name="pointEntree" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
-                            <option value="aeroport_nkc">Aéroport International de Nouakchott</option>
-                            <option value="aeroport_ndb">Aéroport de Nouadhibou</option>
-                            <option value="port_ndb">Port de Nouadhibou</option>
+                        <label class="text-sm font-medium text-foreground">Point d'entrée / sortie</label>
+                        <select name="pointEntree" id="select-point-entree" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
+                            <!-- Options filled by JS -->
                         </select>
                     </div>
                     <div>
@@ -514,11 +512,26 @@
     ];
     const COUNTRIES = ["Mauritanie", ...countriesRaw.sort((a, b) => a.localeCompare(b))];
     const selectNat = document.getElementById("select-nationalite");
+    const selectPointEntree = document.getElementById("select-point-entree");
+
+    const ALL_POINTS = [
+        { value: "aeroport_oumtounsy", label: "Aéroport Oumtounsy" },
+        { value: "port_de_rosso", label: "Port de Rosso" }
+    ];
+
+    function updatePointsEntree() {
+        if (!selectPointEntree) return;
+        selectPointEntree.innerHTML = ALL_POINTS.map(p => `<option value="${p.value}">${p.label}</option>`).join("");
+    }
+
     if (selectNat) {
         selectNat.innerHTML = COUNTRIES.map(c => `<option value="${c}">${c}</option>`).join("");
         // Par défaut, sélectionner Mauritanie
         selectNat.value = "Mauritanie"; 
     }
+    
+    // Initialiser la liste des points d'entrée
+    updatePointsEntree();
 
     // --- Form Submissions ---
 
@@ -794,7 +807,7 @@
         handleCSVImport(file, '/api/migrations', (row) => ({
             date: row.date || today,
             type: row.type || 'entree',
-            pointEntree: row.pointEntree || 'aeroport_nkc',
+            pointEntree: row.pointEntree || 'aeroport_oumtounsy',
             nombre: Number(row.nombre) || 1,
             nationalite: row.nationalite || 'Mauritanie',
             dureeSejour: row.dureeSejour || 'plus_12mois',
