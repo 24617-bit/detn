@@ -353,23 +353,27 @@
     const ROLE_LABEL = { ansade: "ANSADE", sante: "Santé", migration: "Migration" };
     document.getElementById('session-label').innerText = `${ROLE_LABEL[session.role] || session.role} · ${session.affectation}`;
 
-    const isSante = session.role === 'sante' || session.role === 'ansade';
-    const isMigration = session.role === 'migration' || session.role === 'ansade';
+    const isSante = session.role === 'sante';
+    const isMigration = session.role === 'migration';
     const isAnsade = session.role === 'ansade';
 
+    // Affichage des formulaires de saisie
     if (isSante) {
         document.getElementById('section-naissances').classList.remove('hidden');
         document.getElementById('section-deces').classList.remove('hidden');
-    } else {
+    }
+    if (isMigration) {
+        document.getElementById('section-migration').classList.remove('hidden');
+    }
+
+    // Affichage des KPIs et listes récentes
+    if (!isSante && !isAnsade) {
         document.getElementById('card-kpi-births').classList.add('hidden');
         document.getElementById('card-kpi-deaths').classList.add('hidden');
         document.getElementById('recent-col-naissances').classList.add('hidden');
         document.getElementById('recent-col-deces').classList.add('hidden');
     }
-
-    if (isMigration) {
-        document.getElementById('section-migration').classList.remove('hidden');
-    } else {
+    if (!isMigration && !isAnsade) {
         document.getElementById('card-kpi-migrations').classList.add('hidden');
         document.getElementById('recent-col-migrations').classList.add('hidden');
     }
