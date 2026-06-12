@@ -30,7 +30,7 @@
             </span>
             <p class="mt-5 text-sm font-medium text-white/70" data-i18n="counter-label">Population résidente habituelle estimée</p>
 
-            <div id="population-digits" class="mt-3 flex flex-wrap items-center justify-center gap-1">
+            <div id="population-digits" dir="ltr" class="mt-3 flex flex-wrap items-center justify-center gap-1">
                 <!-- Les chiffres seront insérés ici par JS -->
             </div>
             <p class="mt-4 max-w-xl mx-auto text-xs text-white/60" data-i18n="counter-desc">
@@ -74,24 +74,24 @@
         <!-- Formule -->
         <section class="mt-8 rounded-2xl border border-border bg-card p-6 shadow-sm">
             <h3 class="font-display text-lg font-bold text-foreground" data-i18n="equation-title">Équation de l'équilibre démographique</h3>
-            <div class="mt-4 rounded-xl bg-primary/5 p-5 text-center font-mono text-base text-foreground">
+            <div dir="ltr" class="mt-4 rounded-xl bg-primary/5 p-5 text-center font-mono text-base text-foreground">
                 P(t) = P&#8320; + N &minus; D + I<sub>(+12&nbsp;mois)</sub> &minus; E<sub>(+12&nbsp;mois)</sub>
             </div>
             <dl class="mt-5 grid gap-3 sm:grid-cols-2">
                 <div class="rounded-lg border border-border p-4">
-                    <span class="font-mono font-bold text-primary">P&#8320;</span>
+                    <span dir="ltr" class="inline-block font-mono font-bold text-primary">P&#8320;</span>
                     <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-p0">Population du RGPH 2023 : 4 927 532 habitants (référence 1er janvier 2024).</p>
                 </div>
                 <div class="rounded-lg border border-border p-4">
-                    <span class="font-mono font-bold text-primary">N &minus; D</span>
+                    <span dir="ltr" class="inline-block font-mono font-bold text-primary">N &minus; D</span>
                     <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-nd">Solde naturel : naissances moins décès enregistrés.</p>
                 </div>
                 <div class="rounded-lg border border-border p-4">
-                    <span class="font-mono font-bold text-primary">I &minus; E</span>
+                    <span dir="ltr" class="inline-block font-mono font-bold text-primary">I &minus; E</span>
                     <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-ie">Solde migratoire des résidents habituels (séjour &ge; 12 mois).</p>
                 </div>
                 <div class="rounded-lg border border-border p-4">
-                    <span class="font-mono font-bold text-primary">t</span>
+                    <span dir="ltr" class="inline-block font-mono font-bold text-primary">t</span>
                     <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-t">Temps écoulé depuis la date de référence.</p>
                 </div>
             </dl>
