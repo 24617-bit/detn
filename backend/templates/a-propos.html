@@ -1,39 +1,39 @@
-﻿{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <div class="container mx-auto px-4 py-12">
     <header class="max-w-2xl">
-        <p class="text-sm font-semibold uppercase tracking-wider text-primary">Methodologie</p>
-        <h1 class="mt-2 font-display text-3xl font-extrabold text-foreground sm:text-4xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary" data-i18n="methodology-badge">Methodologie</p>
+        <h1 class="mt-2 font-display text-3xl font-extrabold text-foreground sm:text-4xl" data-i18n="methodology-title">
             Comment ce compteur est-il calcule ?
         </h1>
-        <p class="mt-3 text-muted-foreground">
+        <p class="mt-3 text-muted-foreground" data-i18n="methodology-desc">
             Transparence des sources, des hypotheses et des limites de l'estimation.
         </p>
     </header>
 
     <!-- Formule -->
     <section class="mt-8 rounded-2xl border border-border bg-card p-6 shadow-sm">
-        <h2 class="font-display text-lg font-bold text-foreground">Equation de l'equilibre demographique</h2>
+        <h2 class="font-display text-lg font-bold text-foreground" data-i18n="equation-title">Equation de l'equilibre demographique</h2>
         <div class="mt-4 rounded-xl bg-primary/5 p-5 text-center font-mono text-base text-foreground">
             P(t) = P&#8320; + N &minus; D + I<sub>(+12&nbsp;mois)</sub> &minus; E<sub>(+12&nbsp;mois)</sub>
         </div>
         <dl class="mt-5 grid gap-3 sm:grid-cols-2">
             <div class="rounded-lg border border-border p-4">
                 <span class="font-mono font-bold text-primary">P&#8320;</span>
-                <p class="mt-1 text-sm text-muted-foreground">Population du RGPH 2023 : 4 927 532 habitants (reference 1er janvier 2024).</p>
+                <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-p0">Population du RGPH 2023 : 4 927 532 habitants (reference 1er janvier 2024).</p>
             </div>
             <div class="rounded-lg border border-border p-4">
                 <span class="font-mono font-bold text-primary">N &minus; D</span>
-                <p class="mt-1 text-sm text-muted-foreground">Solde naturel : naissances moins deces enregistres.</p>
+                <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-nd">Solde naturel : naissances moins deces enregistres.</p>
             </div>
             <div class="rounded-lg border border-border p-4">
                 <span class="font-mono font-bold text-primary">I &minus; E</span>
-                <p class="mt-1 text-sm text-muted-foreground">Solde migratoire des residents habituels (sejour &ge; 12 mois).</p>
+                <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-ie">Solde migratoire des residents habituels (sejour &ge; 12 mois).</p>
             </div>
             <div class="rounded-lg border border-border p-4">
                 <span class="font-mono font-bold text-primary">t</span>
-                <p class="mt-1 text-sm text-muted-foreground">Temps ecoule depuis la date de reference.</p>
+                <p class="mt-1 text-sm text-muted-foreground" data-i18n="eq-t">Temps ecoule depuis la date de reference.</p>
             </div>
         </dl>
     </section>
@@ -45,13 +45,13 @@
                 <i data-lucide="globe" class="h-5 w-5"></i>
             </span>
             <div>
-                <h2 class="font-display text-lg font-bold text-foreground">Resident habituel &mdash; ONU</h2>
-                <p class="mt-2 text-sm text-muted-foreground">
+                <h2 class="font-display text-lg font-bold text-foreground" data-i18n="onu-def-title">Resident habituel &mdash; ONU</h2>
+                <p class="mt-2 text-sm text-muted-foreground" data-i18n="onu-def-text">
                     Est resident habituel toute personne qui vit, ou a l'intention de vivre, dans un lieu
                     pendant <strong class="text-foreground">12 mois ou plus</strong>. Les sejours de
                     courte duree (tourisme, transit, missions) n'entrent pas dans le decompte.
                 </p>
-                <p class="mt-2 text-xs italic text-muted-foreground">
+                <p class="mt-2 text-xs italic text-muted-foreground" data-i18n="onu-def-source">
                     Source : United Nations Statistics Division &mdash; Principles and Recommendations for
                     Population and Housing Censuses, Revision 3.
                 </p>
@@ -64,25 +64,25 @@
         <section class="rounded-2xl border border-border bg-card p-6 shadow-sm">
             <div class="flex items-center gap-3">
                 <i data-lucide="book-marked" class="h-5 w-5 text-primary"></i>
-                <h2 class="font-display text-lg font-bold text-foreground">Sources nationales</h2>
+                <h2 class="font-display text-lg font-bold text-foreground" data-i18n="sources-title">Sources nationales</h2>
             </div>
             <ul class="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>&bull; RGPH 2023 &mdash; Recensement General de la Population et de l'Habitat.</li>
-                <li>&bull; ANSADE &mdash; Estimations annuelles 2024-2026.</li>
-                <li>&bull; Ministere de la Sante &mdash; flux de naissances et deces.</li>
-                <li>&bull; Direction de la Migration &mdash; entrees / sorties par point d'entree.</li>
+                <li data-i18n="source-rgph">&bull; RGPH 2023 &mdash; Recensement General de la Population et de l'Habitat.</li>
+                <li data-i18n="source-ansade">&bull; ANSADE &mdash; Estimations annuelles 2024-2026.</li>
+                <li data-i18n="source-sante">&bull; Ministere de la Sante &mdash; flux de naissances et deces.</li>
+                <li data-i18n="source-migration">&bull; Direction de la Migration &mdash; entrees / sorties par point d'entree.</li>
             </ul>
         </section>
 
         <section class="rounded-2xl border border-border bg-card p-6 shadow-sm">
             <div class="flex items-center gap-3">
                 <i data-lucide="list-checks" class="h-5 w-5 text-primary"></i>
-                <h2 class="font-display text-lg font-bold text-foreground">References internationales</h2>
+                <h2 class="font-display text-lg font-bold text-foreground" data-i18n="intl-ref-title">References internationales</h2>
             </div>
             <ul class="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>&bull; INSEE (France) &mdash; horloge demographique.</li>
-                <li>&bull; U.S. Census Bureau &mdash; Population Clock.</li>
-                <li>&bull; CAPMAS (Egypte) &mdash; compteur de population.</li>
+                <li data-i18n="intl-insee">&bull; INSEE (France) &mdash; horloge demographique.</li>
+                <li data-i18n="intl-us">&bull; U.S. Census Bureau &mdash; Population Clock.</li>
+                <li data-i18n="intl-capmas">&bull; CAPMAS (Egypte) &mdash; compteur de population.</li>
             </ul>
         </section>
     </div>
@@ -94,11 +94,11 @@
                 <i data-lucide="alert-triangle" class="h-5 w-5"></i>
             </span>
             <div>
-                <h2 class="font-display text-lg font-bold text-foreground">Limites de l'estimation</h2>
+                <h2 class="font-display text-lg font-bold text-foreground" data-i18n="limits-title">Limites de l'estimation</h2>
                 <ul class="mt-3 space-y-2 text-sm text-muted-foreground">
-                    <li>&bull; La migration terrestre (frontieres non aeroportuaires) n'est pas couverte.</li>
-                    <li>&bull; Les flux annuels sont des moyennes lissees, non des releves en temps reel.</li>
-                    <li>&bull; Le compteur est une projection indicative, non un denombrement officiel.</li>
+                    <li data-i18n="limit-4">&bull; La migration terrestre (frontieres non aeroportuaires) n'est pas couverte.</li>
+                    <li data-i18n="limit-5">&bull; Les flux annuels sont des moyennes lissees, non des releves en temps réel.</li>
+                    <li data-i18n="limit-6">&bull; Le compteur est une projection indicative, non un denombrement officiel.</li>
                 </ul>
             </div>
         </div>

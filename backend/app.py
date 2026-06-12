@@ -94,10 +94,22 @@ class Migration(db.Model):
 app = Flask(__name__)
 CORS(app) # Allow cross-origin requests
 
-# Configuration de la base de données MySQL
+# Configuration de la base de données MySQL ou Fallback SQLite local
 db_url = os.environ.get('SQLALCHEMY_DATABASE_URI', 'mysql+pymysql://root:@localhost/demo_mauritanie')
 if db_url.startswith('mysql://'):
     db_url = db_url.replace('mysql://', 'mysql+pymysql://', 1)
+
+# Si on tente de se connecter sur localhost, on verifie si MySQL est actif, sinon on bascule sur SQLite
+if 'localhost' in db_url:
+    import pymysql
+    try:
+        # Tentative de connexion rapide
+        conn = pymysql.connect(host='localhost', user='root', connect_timeout=1)
+        conn.close()
+    except Exception:
+        # Fallback SQLite
+        db_url = 'sqlite:///' + os.path.join(os.path.abspath(os.path.dirname(__file__)), 'demo_mauritanie.db')
+
 app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 

@@ -10,14 +10,14 @@
                     <i data-lucide="activity" class="h-5 w-5"></i>
                 </span>
                 <div class="leading-tight">
-                    <p class="font-display text-sm font-bold text-foreground">Tableau de bord</p>
-                    <p id="session-label" class="text-xs text-muted-foreground">Chargement...</p>
+                    <p class="font-display text-sm font-bold text-foreground" data-i18n="admin-dashboard">Tableau de bord</p>
+                    <p id="session-label" class="text-xs text-muted-foreground" data-i18n="admin-loading">Chargement...</p>
                 </div>
             </div>
             <button id="logout-btn"
                 class="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary">
                 <i data-lucide="log-out" class="h-4 w-4"></i>
-                Déconnexion
+                <span data-i18n="nav-logout">Déconnexion</span>
             </button>
         </div>
     </header>
@@ -26,25 +26,16 @@
         <!-- KPI Cards -->
         <div class="grid gap-4 sm:grid-cols-3">
             <div id="card-kpi-births" class="rounded-2xl border border-border bg-card p-5">
-                <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <i data-lucide="baby" class="h-5 w-5"></i>
-                </span>
                 <p id="kpi-births" class="mt-3 font-display tabular text-3xl font-extrabold text-primary">0</p>
-                <p class="text-sm text-muted-foreground">Naissances aujourd'hui</p>
+                <p class="text-sm text-muted-foreground" data-i18n="births-today">Naissances aujourd'hui</p>
             </div>
             <div id="card-kpi-deaths" class="rounded-2xl border border-border bg-card p-5">
-                <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
-                    <i data-lucide="heart-pulse" class="h-5 w-5"></i>
-                </span>
                 <p id="kpi-deaths" class="mt-3 font-display tabular text-3xl font-extrabold text-destructive">0</p>
-                <p class="text-sm text-muted-foreground">Décès aujourd'hui</p>
+                <p class="text-sm text-muted-foreground" data-i18n="deaths-today">Décès aujourd'hui</p>
             </div>
             <div id="card-kpi-migrations" class="rounded-2xl border border-border bg-card p-5">
-                <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/20 text-accent-foreground">
-                    <i data-lucide="plane" class="h-5 w-5"></i>
-                </span>
                 <p id="kpi-migrations" class="mt-3 font-display tabular text-3xl font-extrabold text-accent-foreground">0</p>
-                <p class="text-sm text-muted-foreground">Entrées ≥12 mois aujourd'hui</p>
+                <p class="text-sm text-muted-foreground" data-i18n="admin-kpi-migrations">Entrées ≥12 mois aujourd'hui</p>
             </div>
         </div>
 
@@ -53,27 +44,27 @@
             <!-- Section Naissances (sante / ansade) -->
             <section id="section-naissances" class="hidden rounded-2xl border border-border bg-card p-4 sm:p-6 min-w-0">
                 <h2 class="flex items-center gap-2 font-display text-lg font-bold text-foreground">
-                    <i data-lucide="baby" class="h-5 w-5 text-primary"></i> Saisie des naissances
+                    <span data-i18n="admin-births-title">Saisie des naissances</span>
                 </h2>
                 <form id="form-naissance" class="mt-4 space-y-3">
                     <div id="div-naissance-wilaya" class="hidden">
-                        <label class="text-sm font-medium text-foreground">Wilaya</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-wilaya">Wilaya</label>
                         <select name="wilaya" id="select-naissance-wilaya" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Sexe du nouveau-né</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-sex-baby">Sexe du nouveau-né</label>
                         <select name="sexe" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" required>
-                            <option value="M">Garçon</option>
-                            <option value="F">Fille</option>
+                            <option value="M" data-i18n="admin-boy">Garçon</option>
+                            <option value="F" data-i18n="admin-girl">Fille</option>
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Âge de la mère (optionnel)</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-mother-age">Âge de la mère (optionnel)</label>
                         <input name="age_mere" type="number" min="10" max="60" placeholder="ex. 25" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <button type="submit" class="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:brightness-110 active:scale-95 transition">
-                        Enregistrer (1 Naissance)
+                        <span data-i18n="admin-save-birth">Enregistrer (1 Naissance)</span>
                     </button>
                 </form>
             </section>
@@ -81,31 +72,31 @@
             <!-- Section Décès (sante / ansade) -->
             <section id="section-deces" class="hidden rounded-2xl border border-border bg-card p-4 sm:p-6 min-w-0">
                 <h2 class="flex items-center gap-2 font-display text-lg font-bold text-foreground">
-                    <i data-lucide="heart-off" class="h-5 w-5 text-destructive"></i> Saisie des décès
+                    <span data-i18n="admin-deaths-title">Saisie des décès</span>
                 </h2>
                 <form id="form-deces" class="mt-4 space-y-3">
                     <div id="div-deces-wilaya" class="hidden">
-                        <label class="text-sm font-medium text-foreground">Wilaya</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-wilaya">Wilaya</label>
                         <select name="wilaya" id="select-deces-wilaya" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Sexe de la personne décédée</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-sex-deceased">Sexe de la personne décédée</label>
                         <select name="sexe" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" required>
-                            <option value="M">Homme</option>
-                            <option value="F">Femme</option>
+                            <option value="M" data-i18n="admin-man">Homme</option>
+                            <option value="F" data-i18n="admin-woman">Femme</option>
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Âge du défunt (optionnel)</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-deceased-age">Âge du défunt (optionnel)</label>
                         <input name="age" type="number" min="0" max="120" placeholder="ex. 65" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Cause (optionnel)</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-death-cause">Cause (optionnel)</label>
                         <input name="cause" type="text" placeholder="ex. Maladie cardiovasculaire" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <button type="submit" class="w-full rounded-lg bg-destructive px-4 py-2.5 text-sm font-semibold text-white hover:brightness-110 active:scale-95 transition">
-                        Enregistrer (1 Décès)
+                        <span data-i18n="admin-save-death">Enregistrer (1 Décès)</span>
                     </button>
                 </form>
             </section>
@@ -113,42 +104,42 @@
             <!-- Section Migration (migration / ansade) -->
             <section id="section-migration" class="hidden rounded-2xl border border-border bg-card p-4 sm:p-6 min-w-0">
                 <h2 class="flex items-center gap-2 font-display text-lg font-bold text-foreground">
-                    <i data-lucide="plane" class="h-5 w-5 text-primary"></i> Saisie migratoire
+                    <span data-i18n="admin-migrations-title">Saisie migratoire</span>
                 </h2>
-                <p class="mt-1 text-sm text-muted-foreground">Seuls les séjours <strong>≥ 12 mois</strong> affectent le compteur de population (ONU ).</p>
+                <p class="mt-1 text-sm text-muted-foreground" data-i18n="admin-migration-note">Seuls les séjours <strong>≥ 12 mois</strong> affectent le compteur de population (ONU).</p>
                 <form id="form-migration" class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     <div>
-                        <label class="text-sm font-medium text-foreground">Type</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-migration-type">Type</label>
                         <select name="type" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
-                            <option value="entree">Entrée</option>
-                            <option value="sortie">Sortie</option>
+                            <option value="entree" data-i18n="admin-migration-in">Entrée</option>
+                            <option value="sortie" data-i18n="admin-migration-out">Sortie</option>
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Point d'entrée / sortie</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-point-entree">Point d'entrée / sortie</label>
                         <select name="pointEntree" id="select-point-entree" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
                             <!-- Options filled by JS -->
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Nombre</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-people-count">Nombre</label>
                         <input name="nombre" type="number" min="0" value="0" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Nationalité</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-nationality">Nationalité</label>
                         <select name="nationalite" id="select-nationalite" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" required>
                         </select>
                     </div>
                     <div>
-                        <label class="text-sm font-medium text-foreground">Durée de séjour</label>
+                        <label class="text-sm font-medium text-foreground" data-i18n="admin-stay-duration">Durée de séjour</label>
                         <select name="dureeSejour" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
-                            <option value="plus_12mois">≥ 12 mois (résident)</option>
-                            <option value="moins_12mois">&lt; 12 mois</option>
+                            <option value="plus_12mois" data-i18n="admin-stay-more">≥ 12 mois (résident)</option>
+                            <option value="moins_12mois" data-i18n="admin-stay-less">&lt; 12 mois</option>
                         </select>
                     </div>
                     <div class="sm:col-span-2 lg:col-span-3">
                         <button type="submit" class="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:brightness-110 active:scale-95 transition">
-                            Enregistrer le mouvement
+                            <span data-i18n="admin-save-migration">Enregistrer le mouvement</span>
                         </button>
                     </div>
                 </form>
@@ -157,45 +148,45 @@
             <!-- Section Utilisateurs (ansade seulement) -->
             <section id="section-users" class="hidden rounded-2xl border border-border bg-card p-4 sm:p-6 lg:col-span-2 min-w-0 overflow-hidden">
                 <h2 class="flex items-center gap-2 font-display text-lg font-bold text-foreground">
-                    <i data-lucide="users" class="h-5 w-5 text-primary"></i> Utilisateurs &amp; rôles
+                    <i data-lucide="users" class="h-5 w-5 text-primary"></i> <span data-i18n="admin-users-title">Utilisateurs &amp; rôles</span>
                 </h2>
 
                 <!-- Formulaire ajout utilisateur -->
                 <form id="form-add-user" class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 p-4 rounded-xl border border-primary/20 bg-primary/5 min-w-0 max-w-full overflow-hidden">
                     <div class="sm:col-span-2 lg:col-span-3">
-                        <p class="text-xs font-semibold uppercase tracking-wide text-primary">Ajouter un nouvel utilisateur</p>
+                        <p class="text-xs font-semibold uppercase tracking-wide text-primary" data-i18n="admin-create-user">Ajouter un nouvel utilisateur</p>
                     </div>
                     <div>
-                        <label class="text-xs font-medium text-foreground">Identifiant *</label>
+                        <label class="text-xs font-medium text-foreground" data-i18n="admin-username-label">Identifiant *</label>
                         <input name="username" type="text" placeholder="ex. medecin_ndb2" required
                             class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <div>
-                        <label class="text-xs font-medium text-foreground">Mot de passe *</label>
+                        <label class="text-xs font-medium text-foreground" data-i18n="admin-password-label">Mot de passe *</label>
                         <input name="password" type="text" placeholder="ex. sante789" required
                             class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <div>
-                        <label class="text-xs font-medium text-foreground">Rôle *</label>
+                        <label class="text-xs font-medium text-foreground" data-i18n="admin-role">Rôle *</label>
                         <select name="role" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
-                            <option value="sante">Santé (Hôpital)</option>
-                            <option value="migration">Migration</option>
-                            <option value="ansade">ANSADE (Admin)</option>
+                            <option value="sante" data-i18n="admin-role-sante">Santé (Hôpital)</option>
+                            <option value="migration" data-i18n="admin-role-migration">Migration</option>
+                            <option value="ansade" data-i18n="admin-role-ansade">ANSADE (Admin)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="text-xs font-medium text-foreground">Nom complet</label>
+                        <label class="text-xs font-medium text-foreground" data-i18n="admin-full-name">Nom complet</label>
                         <input name="nomComplet" type="text" placeholder="ex. Dr. Fatima Mint Ahmed"
                             class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
                     </div>
                     <div>
-                        <label class="text-xs font-medium text-foreground">Affectation (Wilaya)</label>
+                        <label class="text-xs font-medium text-foreground" data-i18n="admin-affectation">Affectation (Wilaya)</label>
                         <select name="affectation" id="select-user-wilaya" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
                         </select>
                     </div>
                     <div class="flex items-end">
                         <button type="submit" class="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground hover:brightness-110 active:scale-95 transition">
-                            <i data-lucide="user-plus" class="inline h-4 w-4 mr-1"></i> Créer l'utilisateur
+                            <i data-lucide="user-plus" class="inline h-4 w-4 mr-1"></i> <span data-i18n="admin-create-submit">Créer l'utilisateur</span>
                         </button>
                     </div>
                 </form>
@@ -205,10 +196,10 @@
                     <table class="w-full text-sm whitespace-nowrap">
                         <thead class="bg-secondary/50 text-left text-xs uppercase tracking-wide text-muted-foreground">
                             <tr>
-                                <th class="px-4 py-2 font-semibold">Identifiant</th>
-                                <th class="px-4 py-2 font-semibold">Rôle</th>
-                                <th class="px-4 py-2 font-semibold">Affectation</th>
-                                <th class="px-4 py-2 font-semibold">Action</th>
+                                <th class="px-4 py-2 font-semibold" data-i18n="admin-th-username">Identifiant</th>
+                                <th class="px-4 py-2 font-semibold" data-i18n="admin-th-role">Rôle</th>
+                                <th class="px-4 py-2 font-semibold" data-i18n="admin-th-affectation">Affectation</th>
+                                <th class="px-4 py-2 font-semibold" data-i18n="admin-th-action">Action</th>
                             </tr>
                         </thead>
                         <tbody id="users-table-body"></tbody>
@@ -220,25 +211,25 @@
         <!-- Section Import/Export Excel (ANSADE uniquement) -->
         <section id="section-import-export" class="hidden rounded-2xl border border-border bg-card p-6 mt-8">
             <h2 class="flex items-center gap-2 font-display text-lg font-bold text-foreground">
-                <i data-lucide="file-spreadsheet" class="h-5 w-5 text-primary"></i> Import / Export Excel (CSV)
+                <i data-lucide="file-spreadsheet" class="h-5 w-5 text-primary"></i> <span data-i18n="admin-csv-title">Import / Export Excel (CSV)</span>
             </h2>
-            <p class="mt-1 text-sm text-muted-foreground">Exportez ou chargez des lots de données au format Excel / CSV.</p>
+            <p class="mt-1 text-sm text-muted-foreground" data-i18n="admin-csv-desc">Exportez ou chargez des lots de données au format Excel / CSV.</p>
             
             <div class="mt-6 grid gap-6 md:grid-cols-2">
                 <!-- Export Box -->
                 <div class="rounded-xl border border-border bg-secondary/10 p-5">
                     <h3 class="font-display font-semibold text-foreground flex items-center gap-1.5 text-sm">
-                        <i data-lucide="download" class="h-4 w-4 text-primary"></i> Exporter les données
+                        <i data-lucide="download" class="h-4 w-4 text-primary"></i> <span data-i18n="admin-export-title">Exporter les données</span>
                     </h3>
                     <div class="mt-4 flex flex-wrap gap-2">
                         <button id="btn-export-naissances" class="inline-flex items-center gap-2 rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground hover:brightness-110 transition">
-                            <i data-lucide="baby" class="h-3.5 w-3.5"></i> Naissances.csv
+                            Naissances.csv
                         </button>
                         <button id="btn-export-deces" class="inline-flex items-center gap-2 rounded-lg bg-destructive px-3 py-2 text-xs font-semibold text-white hover:brightness-110 transition">
-                            <i data-lucide="heart-pulse" class="h-3.5 w-3.5"></i> Décès.csv
+                            Décès.csv
                         </button>
                         <button id="btn-export-migrations" class="inline-flex items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-semibold text-accent-foreground hover:brightness-110 transition">
-                            <i data-lucide="plane" class="h-3.5 w-3.5"></i> Migrations.csv
+                            Migrations.csv
                         </button>
                     </div>
                 </div>
@@ -246,28 +237,28 @@
                 <!-- Import Box -->
                 <div class="rounded-xl border border-border bg-secondary/10 p-5">
                     <h3 class="font-display font-semibold text-foreground flex items-center gap-1.5 text-sm">
-                        <i data-lucide="upload" class="h-4 w-4 text-primary"></i> Importer des données
+                        <i data-lucide="upload" class="h-4 w-4 text-primary"></i> <span data-i18n="admin-import-title">Importer des données</span>
                     </h3>
                     <div class="mt-4 space-y-3">
                         <div class="flex items-center justify-between gap-2 text-xs">
-                            <span class="font-medium text-muted-foreground">Naissances :</span>
+                            <span class="font-medium text-muted-foreground" data-i18n="admin-import-births">Naissances :</span>
                             <input type="file" id="file-import-naissances" accept=".csv" class="hidden" />
                             <label for="file-import-naissances" class="cursor-pointer inline-flex items-center gap-1.5 rounded bg-secondary px-2.5 py-1 font-semibold text-foreground hover:bg-secondary/80 transition">
-                                <i data-lucide="upload" class="h-3.5 w-3.5"></i> Choisir un fichier CSV
+                                <i data-lucide="upload" class="h-3.5 w-3.5"></i> <span data-i18n="admin-choose-csv">Choisir un fichier CSV</span>
                             </label>
                         </div>
                         <div class="flex items-center justify-between gap-2 text-xs">
-                            <span class="font-medium text-muted-foreground">Décès :</span>
+                            <span class="font-medium text-muted-foreground" data-i18n="admin-import-deaths">Décès :</span>
                             <input type="file" id="file-import-deces" accept=".csv" class="hidden" />
                             <label for="file-import-deces" class="cursor-pointer inline-flex items-center gap-1.5 rounded bg-secondary px-2.5 py-1 font-semibold text-foreground hover:bg-secondary/80 transition">
-                                <i data-lucide="upload" class="h-3.5 w-3.5"></i> Choisir un fichier CSV
+                                <i data-lucide="upload" class="h-3.5 w-3.5"></i> <span data-i18n="admin-choose-csv">Choisir un fichier CSV</span>
                             </label>
                         </div>
                         <div class="flex items-center justify-between gap-2 text-xs">
-                            <span class="font-medium text-muted-foreground">Migrations :</span>
+                            <span class="font-medium text-muted-foreground" data-i18n="admin-import-migrations">Migrations :</span>
                             <input type="file" id="file-import-migrations" accept=".csv" class="hidden" />
                             <label for="file-import-migrations" class="cursor-pointer inline-flex items-center gap-1.5 rounded bg-secondary px-2.5 py-1 font-semibold text-foreground hover:bg-secondary/80 transition">
-                                <i data-lucide="upload" class="h-3.5 w-3.5"></i> Choisir un fichier CSV
+                                <i data-lucide="upload" class="h-3.5 w-3.5"></i> <span data-i18n="admin-choose-csv">Choisir un fichier CSV</span>
                             </label>
                         </div>
                     </div>
@@ -277,18 +268,18 @@
 
         <!-- Dernières saisies -->
         <section class="mt-8 rounded-2xl border border-border bg-card p-6">
-            <h2 class="font-display text-lg font-bold text-foreground">Dernières saisies</h2>
+            <h2 class="font-display text-lg font-bold text-foreground" data-i18n="admin-history-title">Dernières saisies</h2>
             <div class="mt-4 grid gap-6 lg:grid-cols-3">
                 <div id="recent-col-naissances">
-                    <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Naissances</p>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" data-i18n="admin-births-badge">Naissances</p>
                     <ul id="recent-naissances" class="mt-3 space-y-2"><li class="text-xs text-muted-foreground p-4 border border-dashed border-border rounded-lg text-center">Aucune saisie.</li></ul>
                 </div>
                 <div id="recent-col-deces">
-                    <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Décès</p>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" data-i18n="admin-deaths-badge">Décès</p>
                     <ul id="recent-deces" class="mt-3 space-y-2"><li class="text-xs text-muted-foreground p-4 border border-dashed border-border rounded-lg text-center">Aucune saisie.</li></ul>
                 </div>
                 <div id="recent-col-migrations">
-                    <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Migrations</p>
+                    <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" data-i18n="admin-migrations-badge">Migrations</p>
                     <ul id="recent-migrations" class="mt-3 space-y-2"><li class="text-xs text-muted-foreground p-4 border border-dashed border-border rounded-lg text-center">Aucune saisie.</li></ul>
                 </div>
             </div>
@@ -300,39 +291,39 @@
 <div id="modal-edit-user" class="fixed inset-0 z-[100] hidden items-center justify-center bg-background/80 backdrop-blur-sm">
     <div class="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-2xl">
         <div class="flex items-center justify-between mb-4">
-            <h3 class="font-display text-lg font-bold text-foreground">Modifier l'utilisateur</h3>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="admin-edit-user-title">Modifier l'utilisateur</h3>
             <button onclick="closeEditModal()" class="rounded-full p-1.5 hover:bg-secondary text-muted-foreground hover:text-foreground transition"><i data-lucide="x" class="h-4 w-4"></i></button>
         </div>
         <form id="form-edit-user" class="grid gap-3">
             <input type="hidden" id="edit-username" name="username">
             <div>
-                <label class="text-xs font-medium text-foreground">Identifiant</label>
+                <label class="text-xs font-medium text-foreground" data-i18n="admin-username-label-short">Identifiant</label>
                 <input id="edit-username-display" type="text" disabled class="mt-1 w-full rounded-lg border border-input bg-secondary/50 px-3 py-2 text-sm text-muted-foreground outline-none" />
             </div>
             <div>
-                <label class="text-xs font-medium text-foreground">Nouveau mot de passe (laisser vide pour ne changer pas)</label>
+                <label class="text-xs font-medium text-foreground" data-i18n="admin-new-password">Nouveau mot de passe (laisser vide pour ne pas changer)</label>
                 <input id="edit-password" name="password" type="text" placeholder="***" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
             </div>
             <div>
-                <label class="text-xs font-medium text-foreground">Rôle *</label>
+                <label class="text-xs font-medium text-foreground" data-i18n="admin-role">Rôle *</label>
                 <select id="edit-role" name="role" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
-                    <option value="sante">Santé (Hôpital)</option>
-                    <option value="migration">Migration</option>
-                    <option value="ansade">ANSADE (Admin)</option>
+                    <option value="sante" data-i18n="admin-role-sante">Santé (Hôpital)</option>
+                    <option value="migration" data-i18n="admin-role-migration">Migration</option>
+                    <option value="ansade" data-i18n="admin-role-ansade">ANSADE (Admin)</option>
                 </select>
             </div>
             <div>
-                <label class="text-xs font-medium text-foreground">Nom complet</label>
+                <label class="text-xs font-medium text-foreground" data-i18n="admin-full-name">Nom complet</label>
                 <input id="edit-nomComplet" name="nomComplet" type="text" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring" />
             </div>
             <div>
-                <label class="text-xs font-medium text-foreground">Affectation (Wilaya)</label>
+                <label class="text-xs font-medium text-foreground" data-i18n="admin-affectation">Affectation (Wilaya)</label>
                 <select id="edit-affectation" name="affectation" class="mt-1 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-ring">
                 </select>
             </div>
             <div class="mt-4 flex justify-end gap-2">
-                <button type="button" onclick="closeEditModal()" class="rounded-lg bg-secondary px-4 py-2 text-sm font-semibold text-foreground hover:bg-secondary/80 transition">Annuler</button>
-                <button type="submit" class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:brightness-110 active:scale-95 transition">Enregistrer</button>
+                <button type="button" onclick="closeEditModal()" class="rounded-lg bg-secondary px-4 py-2 text-sm font-semibold text-foreground hover:bg-secondary/80 transition" data-i18n="admin-cancel">Annuler</button>
+                <button type="submit" class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:brightness-110 active:scale-95 transition" data-i18n="admin-save">Enregistrer</button>
             </div>
         </form>
     </div>
@@ -348,8 +339,19 @@
     const session = JSON.parse(sessionStorage.getItem('session') || 'null');
     if (!session) { window.location.href = '/login'; }
 
+    // --- Translation helper for JS-generated strings ---
+    function t(key, fallback) {
+        const lang = localStorage.getItem('lang') || 'fr';
+        return (window.translations || translations)?.[lang]?.[key] || fallback || key;
+    }
+
     const ROLE_LABEL = { ansade: "ANSADE", sante: "Santé", migration: "Migration" };
-    document.getElementById('session-label').innerText = `${ROLE_LABEL[session.role] || session.role} · ${session.affectation}`;
+    const ROLE_LABEL_AR = { ansade: "ANSADE", sante: "الصحة", migration: "الهجرة" };
+    function getRoleLabel(role) {
+        const lang = localStorage.getItem('lang') || 'fr';
+        return lang === 'ar' ? (ROLE_LABEL_AR[role] || role) : (ROLE_LABEL[role] || role);
+    }
+    document.getElementById('session-label').innerText = `${getRoleLabel(session.role)} · ${session.affectation}`;
 
     const isSante = session.role === 'sante';
     const isMigration = session.role === 'migration';
@@ -418,7 +420,7 @@
     function renderList(ulId, items) {
         const ul = document.getElementById(ulId);
         if (!items || items.length === 0) {
-            ul.innerHTML = '<li class="text-xs text-muted-foreground p-4 border border-dashed border-border rounded-lg text-center">Aucune saisie pour le moment.</li>';
+            ul.innerHTML = `<li class="text-xs text-muted-foreground p-4 border border-dashed border-border rounded-lg text-center">${t('admin-no-entry', 'Aucune saisie pour le moment.')}</li>`;
             return;
         }
         ul.innerHTML = items.slice(0, 5).map(r => `
@@ -471,7 +473,7 @@
 
             renderList('recent-naissances', viewNaissances.map(n => ({ a: n.wilaya, b: `1 (${n.sexe})`, d: n.date })));
             renderList('recent-deces', viewDeces.map(n => ({ a: n.wilaya, b: `1 (${n.sexe})`, d: n.date })));
-            renderList('recent-migrations', viewMigrations.map(m => ({ a: `${m.type === 'entree' ? 'Entrée' : 'Sortie'} · ${m.nationalite || '—'}`, b: `${m.nombre} (${m.dureeSejour === 'plus_12mois' ? '≥12m' : '<12m'})`, d: m.date })));
+            renderList('recent-migrations', viewMigrations.map(m => ({ a: `${m.type === 'entree' ? t('admin-migration-in-short', 'Entrée') : t('admin-migration-out-short', 'Sortie')} · ${m.nationalite || '—'}`, b: `${m.nombre} (${m.dureeSejour === 'plus_12mois' ? '≥12m' : '<12m'})`, d: m.date })));
 
             // Charger les utilisateurs (ansade)
             if (isAnsade) {
@@ -484,17 +486,17 @@
                             <div class="text-[11px] text-muted-foreground">${u.nomComplet || ''}</div>
                         </td>
                         <td class="px-4 py-2.5 whitespace-nowrap">
-                            <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">${ROLE_LABEL[u.role] || u.role}</span>
+                            <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">${getRoleLabel(u.role)}</span>
                         </td>
                         <td class="px-4 py-2.5 text-muted-foreground whitespace-nowrap">${u.affectation}</td>
                         <td class="px-4 py-2.5 whitespace-nowrap">
                             <button onclick="openEditModal('${u.username}', '${u.role}', '${u.nomComplet || ''}', '${u.affectation}')" class="inline-flex items-center gap-1 rounded bg-secondary/80 px-2 py-1 text-xs font-semibold text-foreground hover:bg-secondary transition mr-1">
-                                <i data-lucide="edit-2" class="h-3 w-3"></i> Modifier
+                                <i data-lucide="edit-2" class="h-3 w-3"></i> ${t('admin-btn-edit', 'Modifier')}
                             </button>
                             ${u.username === 'admin_ansade' 
-                                ? `<span class="text-xs text-muted-foreground italic">Protégé</span>` 
+                                ? `<span class="text-xs text-muted-foreground italic">${t('admin-protected', 'Protégé')}</span>` 
                                 : `<button onclick="deleteUser('${u.username}')" class="inline-flex items-center gap-1 rounded bg-destructive/10 px-2 py-1 text-xs font-semibold text-destructive hover:bg-destructive/20 transition">
-                                    <i data-lucide="trash-2" class="h-3 w-3"></i> Supprimer
+                                    <i data-lucide="trash-2" class="h-3 w-3"></i> ${t('admin-btn-delete', 'Supprimer')}
                                    </button>`}
                         </td>
                     </tr>`).join('');
@@ -580,21 +582,21 @@
         });
         const data = await res.json();
         if (res.ok) { 
-            showToast(`✅ Utilisateur "${username}" mis à jour.`); 
+            showToast(`✅ ${t('admin-toast-user-updated', 'Utilisateur mis à jour.')} (${username})`); 
             closeEditModal(); 
             refreshDashboard(); 
         } else {
-            showToast(data.message || 'Erreur lors de la mise à jour.', true);
+            showToast(data.message || t('admin-toast-error-save', 'Erreur lors de la mise à jour.'), true);
         }
     });
 
     // Supprimer un utilisateur
     window.deleteUser = async function(username) {
-        if (!confirm(`Supprimer l'utilisateur "${username}" ? Cette action est irréversible.`)) return;
+        if (!confirm(t('admin-confirm-delete', `Supprimer l'utilisateur "${username}" ? Cette action est irréversible.`))) return;
         const res = await fetch(`/api/users/${username}`, { method: 'DELETE' });
         const data = await res.json();
-        if (res.ok) { showToast(`✅ Utilisateur "${username}" supprimé.`); refreshDashboard(); }
-        else showToast(data.message || 'Erreur lors de la suppression.', true);
+        if (res.ok) { showToast(`✅ ${t('admin-toast-user-deleted', 'Utilisateur supprimé.')} (${username})`); refreshDashboard(); }
+        else showToast(data.message || t('admin-toast-error-delete', 'Erreur lors de la suppression.'), true);
     };
 
     // Créer un utilisateur
@@ -613,8 +615,8 @@
             body: JSON.stringify(payload)
         });
         const data = await res.json();
-        if (res.ok) { showToast(`✅ Utilisateur "${payload.username}" créé.`); e.currentTarget.reset(); refreshDashboard(); }
-        else showToast(data.message || 'Erreur lors de la création.', true);
+        if (res.ok) { showToast(`✅ ${t('admin-toast-user-created', 'Utilisateur créé.')} (${payload.username})`); e.currentTarget.reset(); refreshDashboard(); }
+        else showToast(data.message || t('admin-toast-error-create', 'Erreur lors de la création.'), true);
     });
     document.getElementById('form-naissance')?.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -632,8 +634,8 @@
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
-        if (res.ok) { showToast('✅ Naissance enregistrée.'); e.currentTarget.reset(); refreshDashboard(); }
-        else showToast('Erreur lors de l\'enregistrement.', true);
+        if (res.ok) { showToast(`✅ ${t('admin-toast-birth-saved', 'Naissance enregistrée.')}`); e.currentTarget.reset(); refreshDashboard(); }
+        else showToast(t('admin-toast-error-save', 'Erreur lors de l\'enregistrement.'), true);
     });
 
     document.getElementById('form-deces')?.addEventListener('submit', async (e) => {
@@ -653,8 +655,8 @@
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         });
-        if (res.ok) { showToast('✅ Décès enregistré.'); e.currentTarget.reset(); refreshDashboard(); }
-        else showToast('Erreur lors de l\'enregistrement.', true);
+        if (res.ok) { showToast(`✅ ${t('admin-toast-death-saved', 'Décès enregistré.')}`); e.currentTarget.reset(); refreshDashboard(); }
+        else showToast(t('admin-toast-error-save', 'Erreur lors de l\'enregistrement.'), true);
     });
 
     document.getElementById('form-migration')?.addEventListener('submit', async (e) => {
@@ -664,8 +666,8 @@
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ date: today, type: f.get('type'), pointEntree: f.get('pointEntree'), nombre: Number(f.get('nombre') || 0), nationalite: f.get('nationalite'), dureeSejour: f.get('dureeSejour'), agent: session.username })
         });
-        if (res.ok) { showToast('✅ Mouvement migratoire enregistré.'); e.currentTarget.reset(); refreshDashboard(); }
-        else showToast('Erreur lors de l\'enregistrement.', true);
+        if (res.ok) { showToast(`✅ ${t('admin-toast-migration-saved', 'Mouvement migratoire enregistré.')}`); e.currentTarget.reset(); refreshDashboard(); }
+        else showToast(t('admin-toast-error-save', 'Erreur lors de l\'enregistrement.'), true);
     });
 
     // --- Import / Export excel functions ---
@@ -683,7 +685,7 @@
         const res = await fetch('/api/naissances');
         const data = await res.json();
         if (data.length === 0) {
-            showToast("Aucune donnée de naissance à exporter.", true);
+            showToast(t('admin-toast-no-births', 'Aucune donnée de naissance à exporter.'), true);
             return;
         }
         const headers = ["date", "wilaya", "nombre", "sexe", "age_mere", "agent"];
@@ -692,14 +694,14 @@
             csvContent += `${row.date || ''},"${row.wilaya || ''}",${row.nombre || 0},"${row.sexe || ''}",${row.age_mere || ''},"${row.agent || ''}"\n`;
         });
         downloadCSV("naissances_export.csv", csvContent);
-        showToast("✅ Naissances exportées en CSV.");
+        showToast(`✅ ${t('admin-toast-exported-births', 'Naissances exportées en CSV.')}`);
     });
 
     document.getElementById('btn-export-deces')?.addEventListener('click', async () => {
         const res = await fetch('/api/deces');
         const data = await res.json();
         if (data.length === 0) {
-            showToast("Aucune donnée de décès à exporter.", true);
+            showToast(t('admin-toast-no-deaths', 'Aucune donnée de décès à exporter.'), true);
             return;
         }
         const headers = ["date", "wilaya", "nombre", "sexe", "age", "cause", "agent"];
@@ -708,14 +710,14 @@
             csvContent += `${row.date || ''},"${row.wilaya || ''}",${row.nombre || 0},"${row.sexe || ''}",${row.age || ''},"${row.cause || 'Non précisée'}","${row.agent || ''}"\n`;
         });
         downloadCSV("deces_export.csv", csvContent);
-        showToast("✅ Décès exportés en CSV.");
+        showToast(`✅ ${t('admin-toast-exported-deaths', 'Décès exportés en CSV.')}`);
     });
 
     document.getElementById('btn-export-migrations')?.addEventListener('click', async () => {
         const res = await fetch('/api/migrations');
         const data = await res.json();
         if (data.length === 0) {
-            showToast("Aucune donnée de migration à exporter.", true);
+            showToast(t('admin-toast-no-migrations', 'Aucune donnée de migration à exporter.'), true);
             return;
         }
         const headers = ["date", "type", "pointEntree", "nombre", "nationalite", "dureeSejour", "agent"];
@@ -724,7 +726,7 @@
             csvContent += `${row.date || ''},"${row.type || ''}","${row.pointEntree || ''}",${row.nombre || 0},"${row.nationalite || ''}","${row.dureeSejour || ''}","${row.agent || ''}"\n`;
         });
         downloadCSV("migrations_export.csv", csvContent);
-        showToast("✅ Migrations exportées en CSV.");
+        showToast(`✅ ${t('admin-toast-exported-migrations', 'Migrations exportées en CSV.')}`);
     });
 
     function parseCSV(text) {
@@ -749,7 +751,7 @@
             const text = e.target.result;
             const rows = parseCSV(text);
             if (rows.length === 0) {
-                showToast("Fichier CSV vide ou invalide.", true);
+                showToast(t('admin-toast-csv-invalid', 'Fichier CSV vide ou invalide.'), true);
                 return;
             }
             let successCount = 0;
@@ -766,7 +768,7 @@
                     console.error("Erreur lors de l'import:", row, err);
                 }
             }
-            showToast(`✅ Importation réussie : ${successCount}/${rows.length} lignes.`);
+            showToast(`✅ ${t('admin-toast-import-success', 'Importation réussie')} : ${successCount}/${rows.length} ${t('admin-toast-lines', 'lignes')}.`);
             refreshDashboard();
         };
         reader.readAsText(file);
@@ -820,6 +822,12 @@
     document.getElementById('logout-btn').addEventListener('click', () => {
         sessionStorage.removeItem('session');
         window.location.href = '/login';
+    });
+
+    // --- Language Change: Re-render dynamic content ---
+    window.addEventListener('langChanged', () => {
+        document.getElementById('session-label').innerText = `${getRoleLabel(session.role)} · ${session.affectation}`;
+        refreshDashboard();
     });
 </script>
 {% endblock %}

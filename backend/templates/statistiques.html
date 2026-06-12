@@ -4,28 +4,31 @@
 <div class="container mx-auto px-4 py-12">
     <!-- GÉOGRAPHIE (fusionné) -->
     <div class="mb-6">
-        <h2 class="font-display text-3xl font-extrabold text-foreground flex items-center gap-2"><i data-lucide="map" class="h-8 w-8 text-accent"></i> Répartition géographique</h2>
-        <p class="mt-2 text-muted-foreground">Population résidente et résidents étrangers par wilaya (RGPH 2023).</p>
+        <h2 class="font-display text-3xl font-extrabold text-foreground flex items-center gap-2">
+            <i data-lucide="map" class="h-8 w-8 text-accent"></i> 
+            <span data-i18n="stats-geo-title">Répartition géographique</span>
+        </h2>
+        <p class="mt-2 text-muted-foreground" data-i18n="stats-geo-desc">Population résidente et résidents étrangers par wilaya (RGPH 2023).</p>
     </div>
 
     <div class="grid gap-3 sm:grid-cols-3">
         <div class="rounded-xl border border-border bg-card p-5">
             <p class="font-display tabular text-2xl font-extrabold text-primary">4 927 532</p>
-            <p class="text-sm text-muted-foreground">Population recensée</p>
+            <p class="text-sm text-muted-foreground" data-i18n="stats-recensed">Population recensée</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-5">
             <p class="font-display tabular text-2xl font-extrabold text-primary">185 000</p>
-            <p class="text-sm text-muted-foreground">Résidents étrangers</p>
+            <p class="text-sm text-muted-foreground" data-i18n="stats-foreigners">Résidents étrangers</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-5">
             <p class="font-display tabular text-2xl font-extrabold text-primary">15</p>
-            <p class="text-sm text-muted-foreground">Wilayas</p>
+            <p class="text-sm text-muted-foreground" data-i18n="stats-wilayas-count">Wilayas</p>
         </div>
     </div>
 
     <section class="mt-8 rounded-2xl border border-border bg-card p-6 shadow-sm">
-        <h3 class="font-display text-lg font-bold text-foreground">Poids démographique des wilayas</h3>
-        <p class="mt-0.5 text-sm text-muted-foreground">Part de la population nationale</p>
+        <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-poids-title">Poids démographique des wilayas</h3>
+        <p class="mt-0.5 text-sm text-muted-foreground" data-i18n="stats-poids-desc">Part de la population nationale</p>
         <div class="mt-5 space-y-3" id="density-bars">
             <!-- Rempli par JS -->
         </div>
@@ -33,25 +36,28 @@
 
     <!-- RÉPARTITION SELON LE SEXE -->
     <div class="mt-12 mb-6 border-t border-border pt-8">
-        <h2 class="font-display text-2xl font-extrabold text-foreground flex items-center gap-2"><i data-lucide="users" class="h-6 w-6 text-pink-500"></i> Répartition selon le sexe (RGPH 2023)</h2>
+        <h2 class="font-display text-2xl font-extrabold text-foreground flex items-center gap-2">
+            <i data-lucide="users" class="h-6 w-6 text-pink-500"></i> 
+            <span data-i18n="stats-sexe-title">Répartition selon le sexe (RGPH 2023)</span>
+        </h2>
     </div>
     
     <div class="grid gap-3 sm:grid-cols-2">
         <div class="rounded-xl border border-border bg-card p-5">
             <div class="flex items-center justify-between">
-                <p class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Hommes</p>
+                <p class="text-sm font-semibold uppercase tracking-wider text-muted-foreground" data-i18n="stats-men">Hommes</p>
                 <i data-lucide="user" class="h-5 w-5" style="color: #0B7A75;"></i>
             </div>
             <p class="mt-2 font-display tabular text-3xl font-extrabold" style="color: #0B7A75;">48.2%</p>
-            <p class="text-sm text-muted-foreground">~ 2 375 070 habitants</p>
+            <p class="text-sm text-muted-foreground" data-i18n="stats-men-count">~ 2 375 070 habitants</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-5">
             <div class="flex items-center justify-between">
-                <p class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Femmes</p>
+                <p class="text-sm font-semibold uppercase tracking-wider text-muted-foreground" data-i18n="stats-women">Femmes</p>
                 <i data-lucide="user" class="h-5 w-5" style="color: #D69A00;"></i>
             </div>
             <p class="mt-2 font-display tabular text-3xl font-extrabold" style="color: #D69A00;">51.8%</p>
-            <p class="text-sm text-muted-foreground">~ 2 552 462 habitantes</p>
+            <p class="text-sm text-muted-foreground" data-i18n="stats-women-count">~ 2 552 462 habitantes</p>
         </div>
     </div>
     <div class="mt-4 h-3 w-full flex overflow-hidden rounded-full bg-secondary">
@@ -63,10 +69,10 @@
     <div class="mt-12 mb-6 border-t border-border pt-8">
         <header class="max-w-2xl">
             <p class="text-sm font-semibold uppercase tracking-wider text-primary">RGPH 1977 — 2023</p>
-            <h1 class="mt-2 font-display text-3xl font-extrabold text-foreground sm:text-4xl">
+            <h1 class="mt-2 font-display text-3xl font-extrabold text-foreground sm:text-4xl" data-i18n="stats-title">
                 Statistiques démographiques
             </h1>
-            <p class="mt-3 text-muted-foreground">
+            <p class="mt-3 text-muted-foreground" data-i18n="stats-subtitle">
                 Cinq recensements généraux et les projections ANSADE éclairent la transition
                 démographique mauritanienne.
             </p>
@@ -80,48 +86,48 @@
 
     <div class="mt-8 grid gap-5 lg:grid-cols-2">
         <section class="rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h3 class="font-display text-lg font-bold text-foreground">Évolution de la population</h3>
-            <p class="mt-0.5 text-sm text-muted-foreground">Recensements & projections ANSADE</p>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-evo-title">Évolution de la population</h3>
+            <p class="mt-0.5 text-sm text-muted-foreground" data-i18n="stats-evo-desc">Recensements & projections ANSADE</p>
             <div class="mt-4 h-72 w-full relative">
                 <canvas id="chartPop"></canvas>
             </div>
         </section>
 
         <section class="rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h3 class="font-display text-lg font-bold text-foreground">Natalité, mortalité & accroissement</h3>
-            <p class="mt-0.5 text-sm text-muted-foreground">Taux pour mille (‰) par recensement</p>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-taux-title">Natalité, mortalité & accroissement</h3>
+            <p class="mt-0.5 text-sm text-muted-foreground" data-i18n="stats-taux-desc">Taux pour mille (‰) par recensement</p>
             <div class="mt-4 h-72 w-full relative">
                 <canvas id="chartTaux"></canvas>
             </div>
         </section>
 
         <section class="rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h3 class="font-display text-lg font-bold text-foreground">Pyramide des âges — RGPH 2023</h3>
-            <p class="mt-0.5 text-sm text-muted-foreground">Effectifs en milliers (Hommes / Femmes)</p>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-pyramide-title">Pyramide des âges — RGPH 2023</h3>
+            <p class="mt-0.5 text-sm text-muted-foreground" data-i18n="stats-pyramide-desc">Effectifs en milliers (Hommes / Femmes)</p>
             <div class="mt-4 h-72 w-full relative">
                 <canvas id="chartPyramide"></canvas>
             </div>
         </section>
 
         <section class="rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h3 class="font-display text-lg font-bold text-foreground">Mortalité infantile (TMI)</h3>
-            <p class="mt-0.5 text-sm text-muted-foreground">Décès pour 1 000 naissances vivantes</p>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-tmi-title">Mortalité infantile (TMI)</h3>
+            <p class="mt-0.5 text-sm text-muted-foreground" data-i18n="stats-tmi-desc">Décès pour 1 000 naissances vivantes</p>
             <div class="mt-4 h-72 w-full relative">
                 <canvas id="chartTMI"></canvas>
             </div>
         </section>
 
         <section class="rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h3 class="font-display text-lg font-bold text-foreground">Espérance de vie à la naissance</h3>
-            <p class="mt-0.5 text-sm text-muted-foreground">e₀ par sexe et par recensement</p>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-e0-title">Espérance de vie à la naissance</h3>
+            <p class="mt-0.5 text-sm text-muted-foreground" data-i18n="stats-e0-desc">e₀ par sexe et par recensement</p>
             <div class="mt-4 h-72 w-full relative">
                 <canvas id="chartE0"></canvas>
             </div>
         </section>
 
         <section class="rounded-2xl border border-border bg-card p-5 shadow-sm">
-            <h3 class="font-display text-lg font-bold text-foreground">ISF — Transition de la fécondité</h3>
-            <p class="mt-0.5 text-sm text-muted-foreground">Indice synthétique de fécondité</p>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-isf-title">ISF — Transition de la fécondité</h3>
+            <p class="mt-0.5 text-sm text-muted-foreground" data-i18n="stats-isf-desc">Indice synthétique de fécondité</p>
             <div class="mt-4 h-72 w-full relative">
                 <canvas id="chartISF"></canvas>
             </div>
@@ -131,12 +137,12 @@
     <!-- COMPARAISON -->
     <section class="mt-10 rounded-2xl border border-border bg-card p-6 shadow-sm">
         <div class="flex flex-wrap items-center justify-between gap-4">
-            <h3 class="font-display text-lg font-bold text-foreground">Comparer deux recensements</h3>
+            <h3 class="font-display text-lg font-bold text-foreground" data-i18n="stats-compare-title">Comparer deux recensements</h3>
             <div class="flex items-center gap-3 text-sm">
                 <select id="yearA" class="rounded-md border border-input bg-background px-3 py-2 text-foreground">
                     <!-- Rempli par JS -->
                 </select>
-                <span class="text-muted-foreground">vs</span>
+                <span class="text-muted-foreground" data-i18n="stats-compare-vs">vs</span>
                 <select id="yearB" class="rounded-md border border-input bg-background px-3 py-2 text-foreground">
                     <!-- Rempli par JS -->
                 </select>
