@@ -77,7 +77,7 @@
         }
     </script>
 </head>
-<body class="min-h-screen bg-background font-sans antialiased overflow-x-hidden">
+<body class="min-h-screen bg-background font-sans antialiased overflow-x-hidden pb-20 md:pb-0">
     <header class="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
         <div class="container mx-auto flex h-16 items-center px-4 justify-between">
             <a href="/" class="flex items-center gap-3">
@@ -112,18 +112,10 @@
 
                     <a href="/login" class="inline-flex items-center justify-center rounded-lg bg-primary px-3 py-1.5 sm:px-4 sm:py-2 text-primary-foreground font-semibold hover:brightness-110 transition text-xs sm:text-sm" data-i18n="nav-login">Connexion</a>
                 </div>
-                
-                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-foreground/80 hover:text-foreground transition rounded-md hover:bg-secondary/50">
-                    <i data-lucide="menu" class="h-6 w-6"></i>
-                </button>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-background/95 backdrop-blur-md px-4 py-4 space-y-4 shadow-lg absolute w-full left-0 top-16">
-            <a href="/" class="block text-sm font-medium text-foreground/80 hover:text-foreground transition" data-i18n="nav-home">Accueil</a>
-            <a href="/statistiques" class="block text-sm font-medium text-foreground/80 hover:text-foreground transition" data-i18n="nav-stats">Statistiques RGPH</a>
-        </div>
+
     </header>
 
     <main class="flex-1">
@@ -133,14 +125,6 @@
     <script>
         lucide.createIcons();
         
-        // Toggle mobile menu
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
 
         // Theme switching logic
         const themeToggleBtn = document.getElementById('theme-toggle');
@@ -173,6 +157,19 @@
             window.translatePage();
         });
     </script>
+    <!-- Mobile Bottom Nav -->
+    <div class="md:hidden fixed bottom-0 left-0 z-50 w-full border-t border-border bg-background/90 backdrop-blur-md pb-safe">
+        <div class="flex items-center justify-around h-16">
+            <a href="/" class="flex flex-col items-center justify-center w-full text-foreground/60 hover:text-primary transition-colors">
+                <i data-lucide="home" class="h-5 w-5 mb-1"></i>
+                <span class="text-[10px] font-medium" data-i18n="nav-home">Accueil</span>
+            </a>
+            <a href="/statistiques" class="flex flex-col items-center justify-center w-full text-foreground/60 hover:text-primary transition-colors">
+                <i data-lucide="bar-chart-2" class="h-5 w-5 mb-1"></i>
+                <span class="text-[10px] font-medium" data-i18n="nav-stats">Statistiques RGPH</span>
+            </a>
+        </div>
+    </div>
     {% block scripts %}{% endblock %}
 </body>
 </html>

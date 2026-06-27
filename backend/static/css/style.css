@@ -58,3 +58,9 @@ body {
     display: inline-block;
     transition: transform 0.3s ease;
 }
+
+/* Force left-to-right (LTR) for all numbers to prevent RTL scrambling */
+.tabular, .tabular-nums, [dir="ltr"] {
+    direction: ltr !important;
+    unicode-bidi: isolate !important;
+}

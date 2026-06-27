@@ -12,10 +12,11 @@ const C = {
 };
 
 const RGPH = [
-    {annee: 1988, population: 1864236, tbn: 48.2, tbm: 18.1, tan: 30.1, tmi: 124, isf: 7.2, e0Homme: 49.0, e0Femme: 51.5, e0Total: 50.2},
-    {annee: 2000, population: 2508159, tbn: 44.5, tbm: 14.2, tan: 30.3, tmi: 82,  isf: 6.0, e0Homme: 54.0, e0Femme: 57.5, e0Total: 55.8},
-    {annee: 2013, population: 3537368, tbn: 41.2, tbm: 11.8, tan: 29.4, tmi: 72,  isf: 5.1, e0Homme: 61.1, e0Femme: 63.5, e0Total: 62.3},
-    {annee: 2023, population: 4927532, tbn: 32.6, tbm: 6.1,  tan: 26.5, tmi: 33,  isf: 4.7, e0Homme: 67.5, e0Femme: 70.3, e0Total: 68.9}
+    {annee: 1977, population: 1338830, tbn: 49.0, tbm: 14.1, tan: 34.9, tmi: null, isf: 6.5, e0Homme: 38.5, e0Femme: 41.5, e0Total: 40.0},
+    {annee: 1988, population: 1864236, tbn: 45.2, tbm: 12.8, tan: 32.4, tmi: 124,  isf: null, e0Homme: 46.5, e0Femme: 49.5, e0Total: 48.0},
+    {annee: 2000, population: 2508159, tbn: 36.0, tbm: 11.6, tan: 24.4, tmi: 82,   isf: 6.0, e0Homme: 56.5, e0Femme: 59.5, e0Total: 58.0},
+    {annee: 2013, population: 3537368, tbn: 32.0, tbm: 10.9, tan: 21.1, tmi: 72,   isf: 4.3, e0Homme: 58.8, e0Femme: 61.8, e0Total: 60.3},
+    {annee: 2023, population: 4927532, tbn: 32.6, tbm: 6.1,  tan: 26.5, tmi: 33,   isf: 4.7, e0Homme: 67.5, e0Femme: 70.3, e0Total: 68.9}
 ];
 
 const POPULATION_HISTORY = [
@@ -273,14 +274,21 @@ function updateComparison() {
     const a = RGPH.find(r => r.annee === yearA);
     const b = RGPH.find(r => r.annee === yearB);
 
+    const formatVal = (v, suffix = '') => {
+        if (v === null || v === undefined) {
+            return document.documentElement.lang === 'ar' ? 'غير متوفر' : 'N/D';
+        }
+        return v + suffix;
+    };
+
     const rows = [
         { key: "compare-pop", label: "Population",       va: formatNumber(a.population), vb: formatNumber(b.population) },
-        { key: "compare-tbn", label: "TBN ‰",           va: a.tbn,                      vb: b.tbn },
-        { key: "compare-tbm", label: "TBM ‰",           va: a.tbm,                      vb: b.tbm },
-        { key: "compare-tan", label: "TAN ‰",           va: a.tan,                      vb: b.tan },
-        { key: "compare-tmi", label: "TMI ‰",           va: a.tmi,                      vb: b.tmi },
-        { key: "compare-isf", label: "ISF",              va: a.isf,                      vb: b.isf },
-        { key: "compare-e0",  label: "Espérance de vie", va: `${a.e0Total} ans`,         vb: `${b.e0Total} ans` },
+        { key: "compare-tbn", label: "TBN ‰",           va: formatVal(a.tbn),            vb: formatVal(b.tbn) },
+        { key: "compare-tbm", label: "TBM ‰",           va: formatVal(a.tbm),            vb: formatVal(b.tbm) },
+        { key: "compare-tan", label: "TAN ‰",           va: formatVal(a.tan),            vb: formatVal(b.tan) },
+        { key: "compare-tmi", label: "TMI ‰",           va: formatVal(a.tmi),            vb: formatVal(b.tmi) },
+        { key: "compare-isf", label: "ISF",             va: formatVal(a.isf),            vb: formatVal(b.isf) },
+        { key: "compare-e0",  label: "Espérance de vie", va: formatVal(a.e0Total, ' ans'), vb: formatVal(b.e0Total, ' ans') },
     ];
 
     compContainer.innerHTML = '';
@@ -288,12 +296,12 @@ function updateComparison() {
         compContainer.innerHTML += `
             <div class="rounded-xl border border-border bg-white shadow-sm p-4">
                 <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground" data-i18n="${row.key}">${row.label}</p>
-                <div class="mt-2 flex items-baseline justify-between">
+                <div class="mt-2 flex items-baseline justify-between" dir="ltr">
                     <span class="font-display tabular text-base font-bold text-teal-700">${row.va}</span>
-                    <span class="text-xs text-muted-foreground">→</span>
+                    <span class="text-xs text-muted-foreground">&rarr;</span>
                     <span class="font-display tabular text-base font-bold text-primary">${row.vb}</span>
                 </div>
-                <p class="mt-1 text-[11px] text-muted-foreground">${yearA} → ${yearB}</p>
+                <p class="mt-1 text-[11px] text-muted-foreground text-right" dir="ltr">${yearA} &rarr; ${yearB}</p>
             </div>
         `;
     });

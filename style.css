@@ -2,14 +2,55 @@
    style.css — Démographie Mauritanie
    ========================================================= */
 
+:root {
+    --background: 140, 20%, 97%; /* Light mode background */
+    --foreground: 140, 20%, 10%; /* Light mode foreground */
+    --border: 140, 15%, 85%;
+    --input: 140, 15%, 85%;
+    --ring: 142, 60%, 45%;
+    --primary: 142, 60%, 45%;
+    --primary-foreground: 144, 90%, 98%;
+    --secondary: 140, 15%, 90%;
+    --secondary-foreground: 140, 20%, 15%;
+    --destructive: 0, 72%, 51%;
+    --destructive-foreground: 0, 0%, 100%;
+    --muted: 140, 15%, 90%;
+    --muted-foreground: 140, 10%, 40%;
+    --accent: 45, 93%, 47%;
+    --accent-foreground: 45, 93%, 10%;
+    --card: 140, 20%, 94%;
+    --card-foreground: 140, 20%, 10%;
+}
+
+.dark {
+    --background: 140, 30%, 6%; /* Dark mode background */
+    --foreground: 0, 0%, 95%; /* Dark mode foreground */
+    --border: 140, 20%, 20%;
+    --input: 140, 20%, 20%;
+    --ring: 142, 60%, 45%;
+    --primary: 142, 60%, 45%;
+    --primary-foreground: 144, 90%, 9%;
+    --secondary: 140, 20%, 15%;
+    --secondary-foreground: 0, 0%, 98%;
+    --destructive: 0, 62.8%, 30.6%;
+    --destructive-foreground: 0, 0%, 98%;
+    --muted: 140, 20%, 15%;
+    --muted-foreground: 140, 10%, 65%;
+    --accent: 45, 93%, 47%;
+    --accent-foreground: 45, 93%, 10%;
+    --card: 140, 30%, 8%;
+    --card-foreground: 0, 0%, 95%;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: hsl(140, 30%, 6%);
-    color: hsl(0, 0%, 95%);
+    font-family: 'Inter', 'Tajawal', sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .font-display {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit', 'Tajawal', sans-serif;
 }
 
 /* Digit counter animation */
