@@ -122,10 +122,24 @@
         {% block content %}{% endblock %}
     </main>
 
+
+    <!-- Mobile Bottom Nav -->
+    <div class="md:hidden fixed bottom-0 left-0 z-50 w-full border-t border-border bg-background/90 backdrop-blur-md">
+        <div class="flex items-center justify-around h-16 pb-1">
+            <a href="/" class="flex flex-col items-center justify-center w-full text-foreground/60 hover:text-primary transition-colors">
+                <i data-lucide="home" class="h-5 w-5 mb-1"></i>
+                <span class="text-[10px] font-medium" data-i18n="nav-home">Accueil</span>
+            </a>
+            <a href="/statistiques" class="flex flex-col items-center justify-center w-full text-foreground/60 hover:text-primary transition-colors">
+                <i data-lucide="bar-chart-2" class="h-5 w-5 mb-1"></i>
+                <span class="text-[10px] font-medium" data-i18n="nav-stats">Statistiques RGPH</span>
+            </a>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
         
-
         // Theme switching logic
         const themeToggleBtn = document.getElementById('theme-toggle');
         if (themeToggleBtn) {
@@ -157,19 +171,6 @@
             window.translatePage();
         });
     </script>
-    <!-- Mobile Bottom Nav -->
-    <div class="md:hidden fixed bottom-0 left-0 z-50 w-full border-t border-border bg-background/90 backdrop-blur-md pb-safe">
-        <div class="flex items-center justify-around h-16">
-            <a href="/" class="flex flex-col items-center justify-center w-full text-foreground/60 hover:text-primary transition-colors">
-                <i data-lucide="home" class="h-5 w-5 mb-1"></i>
-                <span class="text-[10px] font-medium" data-i18n="nav-home">Accueil</span>
-            </a>
-            <a href="/statistiques" class="flex flex-col items-center justify-center w-full text-foreground/60 hover:text-primary transition-colors">
-                <i data-lucide="bar-chart-2" class="h-5 w-5 mb-1"></i>
-                <span class="text-[10px] font-medium" data-i18n="nav-stats">Statistiques RGPH</span>
-            </a>
-        </div>
-    </div>
     {% block scripts %}{% endblock %}
 </body>
 </html>
